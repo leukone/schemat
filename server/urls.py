@@ -16,15 +16,20 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework import routers
 from retail import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic.base import TemplateView
+admin.autodiscover()
+
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^projects/', views.ProjectList.as_view()),
     url(r'^info/', views.AboutUs.as_view()),
     url(r'^contactinfo/', views.Contact.as_view()),
+    url(r'', include('retail.urls')),
 ]
 
 if settings.DEBUG is True:
