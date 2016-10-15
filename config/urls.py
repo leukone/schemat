@@ -1,9 +1,9 @@
 from django.conf.urls import include, url
 from django.conf.urls import url, include
 from django.contrib import admin
+from website import views
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework import routers
-from retail import views
 from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic.base import TemplateView
@@ -17,8 +17,6 @@ import website.views
 
 urlpatterns = [
     url(r'^$', website.views.index, name='index'),
-    url(r'^db', website.views.db, name='db'),
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^projects/', views.ProjectList.as_view()),
     url(r'^info/', views.AboutUs.as_view()),

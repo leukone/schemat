@@ -2,8 +2,8 @@ from django.shortcuts import get_object_or_404, render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from retail.models import Project, Info, ContactInfo
-from retail.serializers import ProjectSerializer, InfoSerializer, ContactInfoSerializer
+from website.models import Project, Info, ContactInfo
+from website.serializers import ProjectSerializer, InfoSerializer, ContactInfoSerializer
 from django.views.generic import View,TemplateView
 from django.http import JsonResponse, HttpResponse
 

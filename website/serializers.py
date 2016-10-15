@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from retail.models import Project, ContactInfo, Info
+from website.models import Project, ContactInfo, Info
 
 
 class ProjectSerializer(serializers.ModelSerializer):
