@@ -7,9 +7,10 @@ from retail.serializers import ProjectSerializer, InfoSerializer, ContactInfoSer
 from django.views.generic import View,TemplateView
 from django.http import JsonResponse, HttpResponse
 
-#projects/
+# Create your views here.
 def index(request):
-    return render(request, 'index.html', {})
+    # return HttpResponse('Hello from Python!')
+    return render(request, 'index.html')
 
 class ProjectList(APIView):
 
