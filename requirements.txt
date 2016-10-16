@@ -9,5 +9,5 @@ numpy==1.11.0
 Pillow==3.4.1
 virtualenv==15.0.3
 whitenoise==3.2.2
-psycopg2==2.4.4
+psycopg2==2.4.5
 
