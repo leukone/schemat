@@ -131,7 +131,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-AWS_STORAGE_BUCKET_NAME = 'schemat-bucket'
+AWS_STORAGE_BUCKET_NAME = 'schematbucket'
 
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
       'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
