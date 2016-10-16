@@ -26,8 +26,6 @@ SECRET_KEY = '3z89(q8t27c1hd8d65(nhj=)2)^6u8x+_f%-#iqo)1*2jn*_wg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -134,10 +132,15 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-AWS_STORAGE_BUCKET_NAME = 'schemat'
+AWS_STORAGE_BUCKET_NAME = 'schemat-bucket'
 AWS_ACCESS_KEY_ID = 'AKIAIPWS5U3PZE3SXSDQ'
 AWS_SECRET_ACCESS_KEY = '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'
 
+
+AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
+      'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+      'Cache-Control': 'max-age=94608000',
+}
 
 
 # Tell django-storages that when coming up with the URL for an item in S3 storage, keep
@@ -167,8 +170,6 @@ DATABASES['default'] = dj_database_url.config()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
-
-DEBUG = False
 
 try:
     from .local_settings import *
