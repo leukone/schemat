@@ -133,8 +133,8 @@ STATICFILES_DIRS = (
 )
 
 AWS_STORAGE_BUCKET_NAME = 'schemat-bucket'
-AWS_ACCESS_KEY_ID = 'AKIAIPWS5U3PZE3SXSDQ'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
 
 
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
@@ -156,7 +156,7 @@ STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 # you run `collectstatic`).
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-
+os.environ['S3_USE_SIGV4'] = 'True'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
