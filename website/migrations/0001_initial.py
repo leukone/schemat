@@ -46,12 +46,12 @@ class Migration(migrations.Migration):
                 ('opening_date', models.DateTimeField(default=django.utils.timezone.now)),
                 ('business_hours_start', models.IntegerField(default=8, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)])),
                 ('business_hours_end', models.IntegerField(default=17, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)])),
-                ('chain', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='retail.Project')),
+                ('chain', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='website.Project')),
             ],
         ),
         migrations.AddField(
             model_name='picture',
             name='store',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='retail.Room'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='website.Room'),
         ),
     ]
