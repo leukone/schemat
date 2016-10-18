@@ -18,9 +18,9 @@ import website.views
 urlpatterns = [
     url(r'^$', website.views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^projects/', views.ProjectList.as_view()),
-    url(r'^info/', views.AboutUs.as_view()),
-    url(r'^contactinfo/', views.Contact.as_view()),
+    url(r'^projectsapi/', views.ProjectList.as_view()),
+    url(r'^infoapi/', views.AboutUs.as_view()),
+    url(r'^contactinfoapi/', views.Contact.as_view()),
 ]
 
 if settings.DEBUG is True:
