@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^projectsapi/', views.ProjectList.as_view()),
     url(r'^infoapi/', views.AboutUs.as_view()),
-    url(r'^contactinfoapi/', views.Contact.as_view()),
+    url(r'^contactapi/', views.Contact.as_view()),
 ]
 
 if settings.DEBUG is True:
