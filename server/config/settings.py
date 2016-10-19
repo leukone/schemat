@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'collectfast',
     'django.contrib.staticfiles',
     'rest_framework',
     'website',
@@ -134,6 +133,10 @@ STATICFILES_DIRS = (
 
 AWS_STORAGE_BUCKET_NAME = 'schematbucket'
 
+AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
+      'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+      'Cache-Control': 'max-age=94608000',
+}
 
 # Tell django-storages that when coming up with the URL for an item in S3 storage, keep
 # it simple - just use this domain plus the path. (If this isn't set, things get complicated).
@@ -145,11 +148,9 @@ AWS_STORAGE_BUCKET_NAME = 'schematbucket'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_PRELOAD_METADATA = True
 
 STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.eu-west-1.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-
 
 # This is used by the `static` template tag from `static`, if you're using that. Or if anything else
 # refers directly to STATIC_URL. So it's safest to always set it.
