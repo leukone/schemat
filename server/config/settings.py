@@ -134,10 +134,6 @@ STATICFILES_DIRS = (
 
 AWS_STORAGE_BUCKET_NAME = 'schematbucket'
 
-AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
-      'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-      'Cache-Control': 'max-age=94608000',
-}
 
 # Tell django-storages that when coming up with the URL for an item in S3 storage, keep
 # it simple - just use this domain plus the path. (If this isn't set, things get complicated).
