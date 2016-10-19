@@ -149,7 +149,7 @@ AWS_STORAGE_BUCKET_NAME = 'schematbucket'
 
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+STATIC_URL = "https://" + AWS_STORAGE_BUCKET_NAME + '.s3.eu-west-1.amazonaws.com/'+ STATICFILES_LOCATION
 
 #STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
