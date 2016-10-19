@@ -146,10 +146,15 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'schematbucket'
 
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+
+#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.eu-west-1.amazonaws.com/'
+#STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.eu-west-1.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 # This is used by the `static` template tag from `static`, if you're using that. Or if anything else
