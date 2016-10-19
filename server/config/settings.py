@@ -167,7 +167,14 @@ os.environ['S3_USE_SIGV4'] = 'True'
 AWS_S3_HOST = 's3-eu-west-1.amazonaws.com'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/'
+
+
+MEDIAFILES_LOCATION = 'media'
+MEDIA_URL = "https://s3-eu-west-1.amazonaws.com/" + AWS_STORAGE_BUCKET_NAME + '/' + MEDIAFILES_LOCATION + '/'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
+
 
 CORS_ORIGIN_ALLOW_ALL = True
 
