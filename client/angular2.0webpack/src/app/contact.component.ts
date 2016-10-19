@@ -14,6 +14,7 @@ import {
      '[@routeAnimation]': 'true',
      '[style.display]': "'block'",
      '[style.position]': "'absolute'",
+     '[style.width]': "'100%'",
      '[style.top]': '0'
   },
     animations: [
