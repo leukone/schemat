@@ -372,3 +372,10 @@ element {
     padding-left: 0px;
 }
 
+.navbar-brand {
+    float: left;
+    padding: 7px 7px;
+    font-size: 18px;
+    line-height: 30px;
+    height: 50px;
+
