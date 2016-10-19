@@ -3,21 +3,27 @@
 <a name="a_{{index}}"></a>
 	 <div  class="col-md-12">	
             <img [src]="slidez.image" style="margin:auto; width:100%">
-            <div class="carousel-caption">
-            	<div class="project-title">
-              		<h3 style="background-color: transparent;color: white;">{{slidez.title}}</h3>
-              	</div>
-              	<div class="project-desription">
-             		 <p  style="background-color: transparent;color: white;">{{slidez.desc}}</p>
-             	</div>
-        <!-- Further content here -->
-        
+            <div class="row">
+		        <div class="carousel-caption">
+		        	<div class="row">
+			        	<div class="project-title">
+			          		<h3 style="background-color: transparent;color: white;">{{slidez.title}}</h3>
+			          	</div>
+			        </div>
+			        <div class="row">
+			          	<div class="project-desription">
+			         		 <p  style="background-color: transparent;color: white;">{{slidez.desc}}</p>
+			         	</div>
+			    <!-- Further content here -->
+			    
 
-              	<div class="row button" [class.selected]="project === selectedProject" (click)="onSelect(project)" >
-						CHCĘ WIĘCEJ ({{mode}})
-			  	</div>
-			  	<div class="error" *ngIf="errorMessage">{{errorMessage}}
-			  	</div>
+			          	<div class="row button" [class.selected]="project === selectedProject" (click)="onSelect(project)" >
+								CHCĘ WIĘCEJ ({{mode}})
+					  	</div>
+					  	<div class="error" *ngIf="errorMessage">{{errorMessage}}
+					  	</div>
+					</div>
+				</div>
 		    </div>
 		  	<!--<div *ngIf="selectedProject">
 		  		<h2>
