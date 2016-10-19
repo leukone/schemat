@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'website',
     'storages',
+    'collectfast',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -148,9 +149,21 @@ AWS_STORAGE_BUCKET_NAME = 'schematbucket'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_PRELOAD_METADATA = True
 
 STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.eu-west-1.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+CACHES = {
+    'default': {
+        # Your default cache
+    },
+    'collectfast': {
+        # Your dedicated Collectfast cache
+    }
+}
+
+COLLECTFAST_CACHE = 'collectfast'
 
 # This is used by the `static` template tag from `static`, if you're using that. Or if anything else
 # refers directly to STATIC_URL. So it's safest to always set it.
