@@ -100,9 +100,6 @@ export class ProjectsComponent implements OnInit {
       return 'block';
     }
 
-    @HostBinding('style.position') get position() {
-      return 'absolute';
-    }
     @HostBinding('style.width') get width() {
       return '100%';
     }

@@ -363,14 +363,10 @@ border-color: #ffffff;
     padding-left: 0px;
     padding-right: 0px;
     width: 100%;
-    position: relative;
 }
 
 h2 {
 }
-
-.container.carousel-caption {
-    position: absolute;
-    z-index: 12;
-    background-color: cadetblue;
+.container .carousel-caption {
+  position: absolute;
 }

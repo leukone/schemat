@@ -1,15 +1,16 @@
 from rest_framework import serializers
-from website.models import Project, ContactInfo, Info
+from website.models import Project, ContactInfo, Info, MiniImage
 
 
 class ProjectSerializer(serializers.ModelSerializer):
     """ Serializer to represent the Chain model """
 
     image = serializers.ImageField(max_length=None, use_url=True)
+    gallery = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     
     class Meta:
         model = Project
-        fields = ("ident", "title", "desc", "projectName", "image")
+        fields = ("ident", "title", "desc", "projectName", "image", "gallery")
 
 class InfoSerializer(serializers.ModelSerializer):
     """ Serializer to represent the Chain model """

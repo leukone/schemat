@@ -14,12 +14,20 @@ class Project(models.Model):
     ident = models.IntegerField(default=1)
     title = models.CharField(max_length=200, default='PROJECT TITLE')
     desc = models.CharField(max_length=1000)
-    projectName = models.CharField(max_length=100)
     #image = models.CharField(max_length=100, default='PROJECT TITLE')
     image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
 
     def __str__(self):
         return str(self.ident)
+
+class MiniImage(models.Model):
+    number = models.IntegerField(default=1)
+    image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='gallery')
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.number
+
 
 class Info(models.Model):
     """ High-level retail chain model"""

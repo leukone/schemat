@@ -1,49 +1,50 @@
-<div class="row" *ngFor="let slidez of projects; let index=index">
-<h2 id = "a{{index}}"> </h2>
-<a name="a_{{index}}"></a>
-	 <div  class="col-md-12">	
-            <img [src]="slidez.image" style="margin:auto; width:100%">
-            <div class="row">
-		        <div class="carousel-caption">
-		        	<div class="row">
-			        	<div class="project-title">
-			          		<h3 style="background-color: transparent;color: white;">{{slidez.title}}</h3>
-			          	</div>
-			        </div>
-			        <div class="row">
-			          	<div class="project-desription">
-			         		 <p  style="background-color: transparent;color: white;">{{slidez.desc}}</p>
-			         	</div>
-			    <!-- Further content here -->
+<div class="row" *ngFor="let slidez of projects; let index=index">    
+    <div class="container-fluid">
+    	
+		<h2 id = "a{{index}}"> </h2>
+		<a name="a_{{index}}"></a>
+		    <div class="container carousel-caption">
+			        	<div class="row">
+				        	<div class="container project-title">
+				          		<h3 style="background-color: transparent;color: white;">{{slidez.title}}</h3>
+				          	</div>
+				        </div>
+				        <div class="row">
+				          	<div class="container project-desription">
+				          	     <div class="description">
+				         		 	<p  style="background-color: transparent;color: white;">{{slidez.desc}}</p>
+				         		 </div>
+				         		 <div class="row button" (click)="isVisible = !isVisible">
+									CHCĘ WIĘCEJ
+		                         </div>
+		                        <div class="test" style="width:20%; height:20%; background-color:red" [@visibilityChanged]="isVisible">
+		                             <div class="row button" (click)="isVisible = !isVisible">
+							              Zamknij
+				                     </div>
+				                </div>
+				            </div>
+					    </div>
+			</div>
+	<img [src]="slidez.image" style="width:100%"> 
+	 </div>
+			    <!-- Further content here 
 			    
 
-			          	<div class="row button" [class.selected]="project === selectedProject" (click)="onSelect(project)" >
+			          		 <div class="row button" [class.selected]="project === selectedProject" (click)="onSelect(project)" >
 								CHCĘ WIĘCEJ ({{mode}})
-					  	</div>
-					  	<div class="error" *ngIf="errorMessage">{{errorMessage}}
-					  	</div>
-					</div>
-				</div>
-		    </div>
+					  		 </div>
+					  		<div class="error" *ngIf="errorMessage">{{errorMessage}}
+					  	    </div>-->
 		  	<!--<div *ngIf="selectedProject">
 		  		<h2>
 		   		 {{selectedProject.title | uppercase}} is my project
 		  		</h2>
-			</div>-->	 
-	 </div>
-	 <div class="row button" (click)="isVisible = !isVisible">
-						otworz
-	 </div>
-	 <div class="test" style="width:20%; height:20%; background-color:red" [@visibilityChanged]="isVisible">
-	 <div class="row button" (click)="isVisible = !isVisible">
-						Zamknij
-			  	</div>
-	 </div>
+			</div>-->	
 </div>
 <div class="carousel-indicators-container .container">
-<ul class="carousel-indicators"> 
-         <li *ngFor="let slidez of projects; let index=index" [class.selected]="slidez === selectedProject" (click)="onSelect(slidez)">
-         	  <a pageScroll [pageScrollEasing]="myEasing" href="#a{{index}}" id="customEasingButton"  >	 o </a>
-         </li>
-</ul>
+	<ul class="carousel-indicators"> 
+	         <li *ngFor="let slidez of projects; let index=index" [class.selected]="slidez === selectedProject" (click)="onSelect(slidez)">
+	         	  <a pageScroll [pageScrollEasing]="myEasing" href="#a{{index}}" id="customEasingButton"  >	 o </a>
+	         </li>
+	</ul>
 </div>
