@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, generics
 from website.models import Project, Info, ContactInfo
 from website.serializers import ProjectSerializer, InfoSerializer, ContactInfoSerializer
 from django.views.generic import View,TemplateView
@@ -12,11 +12,11 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
-class ProjectList(APIView):
+class ProjectList(generics.ListAPIView):
 
 	def get(self, request):
 		projects = Project.objects.all()
-		serializer = ProjectSerializer(projects, many = True, context = {'request':request })
+		serializer = ProjectSerializer(projects, many = True)
 		return Response(serializer.data)
 
 class AboutUs(APIView):

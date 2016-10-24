@@ -23,10 +23,10 @@ class Project(models.Model):
 class MiniImage(models.Model):
     number = models.IntegerField(default=1)
     image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='gallery')
+    project = models.ForeignKey(Project, related_name='gallery')
 
     def __str__(self):              # __unicode__ on Python 2
-        return self.number
+        return str(self.number)
 
 
 class Info(models.Model):
