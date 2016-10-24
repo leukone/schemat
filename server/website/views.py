@@ -12,12 +12,22 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
-class ProjectList(generics.ListAPIView):
+class ProjectList(APIView):
 
 	def get(self, request):
 		projects = Project.objects.all()
 		serializer = ProjectSerializer(projects, context = {'request':request })
 		return Response(serializer.data)
+
+	def post(self, request):
+        serializer = ProjectSerializer(data = request.data)
+        print(request.data)
+
+        if serializer.is_valid():
+            serializer.save(user = request.user)
+            print(serializer.validated_data)
+            return Response(serializer.data, status = status.HTTP_201_CREATED)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class AboutUs(APIView):
 
