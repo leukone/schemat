@@ -16,7 +16,7 @@ class ProjectList(generics.ListAPIView):
 
 	def get(self, request):
 		projects = Project.objects.all()
-		serializer = ProjectSerializer(projects, many = True)
+		serializer = ProjectSerializer(projects, context = {'request':request })
 		return Response(serializer.data)
 
 class AboutUs(APIView):
