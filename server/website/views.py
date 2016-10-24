@@ -19,15 +19,6 @@ class ProjectList(APIView):
 		serializer = ProjectSerializer(projects, context = {'request':request })
 		return Response(serializer.data)
 
-	def post(self, request):
-        serializer = ProjectSerializer(data = request.data)
-        print(request.data)
-
-        if serializer.is_valid():
-            serializer.save(user = request.user)
-            print(serializer.validated_data)
-            return Response(serializer.data, status = status.HTTP_201_CREATED)
-        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class AboutUs(APIView):
 
