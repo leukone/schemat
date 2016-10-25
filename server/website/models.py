@@ -18,7 +18,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
 
     def __str__(self):
-        return str(self.ident)
+        return str(self.title)
 
 class MiniImage(models.Model):
     number = models.IntegerField(default=1)
