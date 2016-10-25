@@ -6,8 +6,8 @@ class MiniImageSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(max_length=None, use_url=True)
     
     class Meta:
-        model = MiniImage
-        fields = ("number", "image")
+       model = MiniImage
+       fields = ("number", "image")
 
 
 class ProjectSerializer(serializers.ModelSerializer):
