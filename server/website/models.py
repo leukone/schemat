@@ -26,7 +26,7 @@ class MiniImage(models.Model):
     project = models.ForeignKey(Project, related_name='gallery')
 
     def __str__(self):              # __unicode__ on Python 2
-        return str(self.number)
+        return str(self.number+'_')
 
 
 class Info(models.Model):
