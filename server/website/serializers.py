@@ -14,7 +14,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     """ Serializer to represent the Chain model """
 
     image = serializers.ImageField(max_length=None, use_url=True)
-    gallery = serializers.serializers.HyperlinkedRelatedField(
+    gallery = serializers.HyperlinkedRelatedField(
         many=True,
         read_only=True,
         view_name='project-detail'
