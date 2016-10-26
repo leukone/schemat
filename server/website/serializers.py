@@ -12,10 +12,11 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializer to represent the Chain model """
     
     image = serializers.ImageField(max_length=None, use_url=True)
-    gallery = MiniImageSerializer(read_only = True)
+    gallery = MiniImageSerializer()
 
     class Meta:
         model = Project
+        depth = 1
         fields = ("ident", "title", "desc", "image", "gallery")
 
 
