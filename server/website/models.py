@@ -21,7 +21,7 @@ class Project(models.Model):
         return str(self.title)
 
 class MiniImage(models.Model):
-    identification = models.CharField(max_length=100)
+    identification = models.CharField(max_length=100, default=1)
     photo = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
     project = models.ForeignKey(Project, related_name='gallery')
 
