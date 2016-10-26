@@ -22,10 +22,10 @@ class Project(models.Model):
 
 class MiniImage(models.Model):
     project = models.ForeignKey(Project, related_name='gallery', null = True)
-    photo = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
+    photo = models.ImageField(upload_to='gallery/')
 
     def __unicode__(self):
-        return str(self.project.title)
+        return self.project.title
 
 
 class Info(models.Model):
@@ -36,7 +36,7 @@ class Info(models.Model):
     image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
 
     def __str__(self):
-        return str(self.title)
+        return self.title
 
 class ContactInfo(models.Model):
     """ High-level retail chain model"""
