@@ -5,6 +5,7 @@ class MiniImageSerializer(serializers.HyperlinkedModelSerializer):
     photo = serializers.ImageField(max_length=None, use_url=True)
     class Meta:
         model = MiniImage
+        depth = 1
         fields = ("identification", "project", "photo")
     
 
@@ -12,7 +13,7 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializer to represent the Chain model """
     
     image = serializers.ImageField(max_length=None, use_url=True)
-    gallery = MiniImageSerializer()
+    gallery = MiniImageSerializer(many=True)
 
     class Meta:
         model = Project
