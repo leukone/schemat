@@ -14,6 +14,7 @@ class Project(models.Model):
     ident = models.IntegerField(default=1)
     title = models.CharField(max_length=200, default='PROJECT TITLE')
     desc = models.CharField(max_length=1000)
+    gallery = models.ForeignKey(MiniImage, related_name='gallery')
     #image = models.CharField(max_length=100, default='PROJECT TITLE')
     image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
 
@@ -23,7 +24,6 @@ class Project(models.Model):
 class MiniImage(models.Model):
     identification = models.CharField(max_length=100, default=1)
     photo = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
-    project = models.ForeignKey(Project, related_name='gallery')
 
     def __unicode__(self):
         return str(self.identification)
