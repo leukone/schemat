@@ -12,7 +12,7 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
-class ProjectList(GenericAPIView):
+class ProjectList(APIView):
 
 	def get(self, request):
 		projects = Project.objects.all()
