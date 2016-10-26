@@ -12,7 +12,7 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
-class ProjectList(views.MiniImageList):
+class ProjectList(APIView):
 
 	#def get(self, request):
 		queryset = Project.objects.all().select_related('gallery')
