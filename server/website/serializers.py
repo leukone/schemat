@@ -3,11 +3,10 @@ from website.models import Project, ContactInfo, Info, MiniImage
 
 class MiniImageSerializer(serializers.ModelSerializer):        
 
-    image = serializers.ImageField(max_length=None, use_url=True)
+    image = serializers.Field('image.url')
     
     class Meta:
         model = MiniImage
-        fields = ("number", "image")
 
 
 class ProjectSerializer(serializers.ModelSerializer):
