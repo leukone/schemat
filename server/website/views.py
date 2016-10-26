@@ -26,7 +26,6 @@ class ProjectList(APIView):
 
 class MiniImageList(generics.ListAPIView):
 	serializer_class = MiniImageSerializer
-	model = MiniImage
 
 	def get_queryset(self):
 		project = self.kwargs['project']
