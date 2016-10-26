@@ -1,23 +1,22 @@
 from rest_framework import serializers
 from website.models import Project, ContactInfo, Info, MiniImage
 
-class MiniImageSerializer(serializers.HyperlinkedModelSerializer):
+class MiniImageSerializer(serializers.ModelSerializer):
     photo = serializers.ImageField(max_length=None, use_url=True)
     class Meta:
         model = MiniImage
-        depth = 1
         fields = ("identification", "photo")
     
 
-class ProjectSerializer(serializers.HyperlinkedModelSerializer):
+class ProjectSerializer(serializers.ModelSerializer):
     """ Serializer to represent the Chain model """
     
     image = serializers.ImageField(max_length=None, use_url=True)
-    gallery = HyperlinkedRelatedField(many=True, view_name = 'gallery-photos')
+    gallery = MiniImageSerializer(many=True)
 
     class Meta:
         model = Project
-        depth = 1
+        depth = 2
         fields = ("ident", "title", "desc", "image", "gallery")
 
 
