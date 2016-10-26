@@ -12,19 +12,19 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
-class ProjectList(APIView):
+class ProjectList(GenericAPIView):
 
 	def get(self, request):
 		projects = Project.objects.all()
 		serializer = ProjectSerializer(projects, context = {'request':request })
 		return Response(serializer.data)
 
-class MiniImageList(APIView):
-
-	def get(self, request):
-		projects = Project.objects.all()
-		serializer = MiniImageSerializer(projects, context = {'request':request })
-		return Response(serializer.data)
+#class MiniImageList(GenericAPIView):
+#
+#	def get(self, request):
+#		projects = Project.objects.all()
+#		serializer = MiniImageSerializer(projects, context = {'request':request })
+#		return Response(serializer.data)
 
 
 class AboutUs(APIView):
