@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^projectsapi/', views.ProjectList.as_view()),
     url(r'^infoapi/', views.AboutUs.as_view()),
     url(r'^contactapi/', views.Contact.as_view()),
+    url('^miniimage/by/(?P<project>\w+)/$', MiniImageList.as_view()),
 ]
 
 if settings.DEBUG is True:

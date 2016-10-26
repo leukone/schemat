@@ -15,15 +15,18 @@ def index(request):
 class ProjectList(GenericAPIView):
 
 	def get(self, request):
-		queryset = Project.objects.all()
-		serializer_class = ProjectSerializer
+		projects = Project.objects.all()
+		serializer = ProjectSerializer(projects, context = {'request':request })
+		return Response(serializer.data)
 
-#class MiniImageList(GenericAPIView):
+class MiniImageList(generics.ListAPIView):
+	serializer_class = MiniImageSerializer
 #
-#	def get(self, request):
+	def get_queryset(self):
+		project = self.kwargs['project']
 #		projects = Project.objects.all()
 #		serializer = MiniImageSerializer(projects, context = {'request':request })
-#		return Response(serializer.data)
+		return MiniImage.objects.filter(project_name = project)
 
 
 class AboutUs(APIView):
