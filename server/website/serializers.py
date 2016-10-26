@@ -6,7 +6,7 @@ class MiniImageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MiniImage
         depth = 2
-        fields = ("identification", "project", "photo")
+        fields = ("identification", "projectid", "photo")
     
 
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
