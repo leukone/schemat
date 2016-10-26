@@ -19,14 +19,14 @@ class ProjectList(APIView):
 		serializer = ProjectSerializer#(projects, context = {'request':request })
 		#return Response(serializer.data)
 
-class MiniImageList(generics.ListAPIView):
-	serializer_class = MiniImageSerializer
+#class MiniImageList(generics.ListAPIView):
+#	serializer_class = MiniImageSerializer
 #
-	def get_queryset(self):
-		project = self.kwargs['project']
+#	def get_queryset(self):
+#		project = self.kwargs['project']
 #		projects = Project.objects.all()
 #		serializer = MiniImageSerializer(projects, context = {'request':request })
-		return MiniImage.objects.filter(project_name = project)
+#		return MiniImage.objects.filter(project_name = project)
 
 
 class AboutUs(APIView):
