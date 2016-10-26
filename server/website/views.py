@@ -15,7 +15,7 @@ def index(request):
 class ProjectList(generics.ListCreateAPIView):
 	queryset = Project.objects.all()
 	serializer_class = ProjectSerializer
-    def post(self, request, format=None):
+	def post(self, request, format=None):
     	serializer = ProjectSerializer(data=request.DATA, files=request.FILES)
 		if serializer.is_valid():
         	serializer.save()
