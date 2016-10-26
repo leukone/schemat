@@ -9,6 +9,13 @@ def validate_only_one_instance(obj):
             obj.id != model.objects.get().id):
         raise ValidationError("Can only create 1 %s instance" % model.__name__)
 
+class MiniImage(models.Model):
+    identification = models.CharField(max_length=100, default=1)
+    photo = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
+
+    def __unicode__(self):
+        return str(self.identification)
+
 class Project(models.Model):
     """ High-level retail chain model"""
     ident = models.IntegerField(default=1)
@@ -20,13 +27,6 @@ class Project(models.Model):
 
     def __unicode__(self):
         return str(self.title)
-
-class MiniImage(models.Model):
-    identification = models.CharField(max_length=100, default=1)
-    photo = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
-
-    def __unicode__(self):
-        return str(self.identification)
 
 
 class Info(models.Model):
