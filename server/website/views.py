@@ -19,7 +19,8 @@ class ProjectList(APIView):
 		serializer = ProjectSerializer#(projects, context = {'request':request })
 		#return Response(serializer.data)
 
-class MiniImageList(generics.ListAPIView):
+class MiniImageList(viewsets.ModelVIewSet):
+	queryset = MiniImage.objects.all()
 	serializer_class = MiniImageSerializer
 #
 	def get_queryset(self):
