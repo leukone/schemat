@@ -15,8 +15,8 @@ def index(request):
 class ProjectList(APIView):
 
 	#def get(self, request):
-		queryset = Project.objects.all().select_related('gallery')
-		serializer = ProjectSerializer#(projects, context = {'request':request })
+	queryset = Project.objects.all().select_related('gallery')
+	serializer = ProjectSerializer#(projects, context = {'request':request })
 		#return Response(serializer.data)
 	def get(self, request):
 		projects = Info.objects.all()
