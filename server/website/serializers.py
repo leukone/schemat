@@ -13,7 +13,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     """ Serializer to represent the Chain model """
     
     image = serializers.ImageField(max_length=None, use_url=True)
-    gallery = serializers.MiniImageSerializer(queryset=MiniImage.objects.all(), many = True)
+    gallery = serializers.MiniImageSerializer(queryset=MiniImage.objects.all(), many = True, required = False)
 
     class Meta:
         model = Project
