@@ -3,21 +3,19 @@ from website.models import Project, ContactInfo, Info, MiniImage
 
 class MiniImageSerializer(serializers.ModelSerializer):        
 
-    image = serializers.ImageField(max_length=None, use_url=True)
-    
+    image_url = serializers.SerializerMethodField('get_image_url')
+
     class Meta:
         model = MiniImage
+        fields = ('image')
 
+    def get_image_url(self, obj):
+        return obj.image.url
 
 class ProjectSerializer(serializers.ModelSerializer):
     """ Serializer to represent the Chain model """
 
     image = serializers.ImageField(max_length=None, use_url=True)
-    gallery = serializers.HyperlinkedRelatedField(
-        many=True,
-        read_only=True,
-        view_name='project-detail'
-    )
     
     class Meta:
         model = Project
