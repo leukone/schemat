@@ -17,7 +17,7 @@ class ProjectList(viewsets.MiniImageList):
 	#def get(self, request):
 		queryset = Project.objects.all().select_related('gallery')
 		serializer = ProjectSerializer#(projects, context = {'request':request })
-		return Response(serializer.data)
+		#return Response(serializer.data)
 
 class MiniImageList(generics.ListAPIView):
 	serializer_class = MiniImageSerializer
