@@ -18,7 +18,7 @@ import website.views
 urlpatterns = [
     url(r'^$', website.views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^projectsapi/', views.ProjectList.as_view()),
+    url(r'^projectsapi/', views.ProjectList.as_view(), name = 'gallery-photos'),
     url(r'^infoapi/', views.AboutUs.as_view()),
     url(r'^contactapi/', views.Contact.as_view()),
 ]
