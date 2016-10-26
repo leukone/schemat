@@ -2,7 +2,6 @@ from rest_framework import serializers
 from website.models import Project, ContactInfo, Info, MiniImage
 
 class MiniImageSerializer(serializers.HyperlinkedModelSerializer):
-    project = serializers.RelatedField(many = True)
     image = serializers.ImageField(max_length=None, use_url=True)
     class Meta:
         model = MiniImage
