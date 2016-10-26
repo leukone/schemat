@@ -25,7 +25,7 @@ class MiniImage(models.Model):
     photo = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
 
     def __unicode__(self):
-        return str(self.identification)
+        return str(self.project.title)
 
 
 class Info(models.Model):
