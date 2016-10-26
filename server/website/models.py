@@ -21,8 +21,8 @@ class Project(models.Model):
         return str(self.title)
 
 class MiniImage(models.Model):
-    project = models.ForeignKey(Project, related_name='gallery', null = True)
-    photo = models.ImageField(upload_to='gallery/')
+    project = models.ForeignKey(Project, related_name='gallery')
+    photo = models.ImageField(upload_to='gallery/', null = True)
 
     def __unicode__(self):
         return self.project.title
