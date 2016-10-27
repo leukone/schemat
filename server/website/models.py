@@ -12,20 +12,26 @@ def validate_only_one_instance(obj):
 class Project(models.Model):
     """ High-level retail chain model"""
     ident = models.IntegerField(default=1)
-    title = models.CharField(max_length=200, default='PROJECT TITLE')
-    desc = models.CharField(max_length=1000)
-    #image = models.CharField(max_length=100, default='PROJECT TITLE')
-    image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
-
-    def __unicode__(self):
+    title = models.CharField(max_length=200, default='About us 1')
+    description = models.CharField(max_length=1000, default = 'description')
+    projectphoto = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
+    gallery1 = models.ImageField(upload_to='gallery/', null = True)
+    gallery2 = models.ImageField(upload_to='gallery/', null = True)
+    gallery3 = models.ImageField(upload_to='gallery/', null = True)
+    gallery4 = models.ImageField(upload_to='gallery/', null = True)
+    gallery5 = models.ImageField(upload_to='gallery/', null = True)
+    gallery6 = models.ImageField(upload_to='gallery/', null = True)
+    gallery = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6]
+    def __str__(self):
         return str(self.title)
 
 class MiniImage(models.Model):
+    number = models.CharField(max_length=200, default='1_')
+    image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
     project = models.ForeignKey(Project, related_name='gallery')
-    photo = models.ImageField(upload_to='gallery/', null = True)
 
-    def __unicode__(self):
-        return self.project.title
+    def __str__(self):              # __unicode__ on Python 2
+        return str(self.number)
 
 
 class Info(models.Model):
@@ -36,7 +42,7 @@ class Info(models.Model):
     image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
 class ContactInfo(models.Model):
     """ High-level retail chain model"""
