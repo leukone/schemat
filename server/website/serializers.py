@@ -19,7 +19,6 @@ class ProjectSerializer(serializers.ModelSerializer):
     gallery4 = serializers.ImageField(max_length=None, use_url=True)
     gallery5 = serializers.ImageField(max_length=None, use_url=True)
     gallery6 = serializers.ImageField(max_length=None, use_url=True)
-    gallery = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6]
     class Meta:
         model = Project
         fields = ("ident", "title", "description", "image", "gallery1", "gallery2", "gallery3", "gallery4", "gallery5", "gallery6")

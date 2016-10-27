@@ -14,14 +14,13 @@ class Project(models.Model):
     ident = models.IntegerField(default=1)
     title = models.CharField(max_length=200, default='About us 1')
     description = models.CharField(max_length=1000, default = 'description')
-    image = models.ImageField(upload_to='images/', default='/home/ola/Documents/schemat/drf_copy/drf_sample/client/static/app/images/2_mini.jpg')
+    image = models.ImageField(upload_to='images/', null= True)
     gallery1 = models.ImageField(upload_to='gallery/', null = True)
     gallery2 = models.ImageField(upload_to='gallery/', null = True)
     gallery3 = models.ImageField(upload_to='gallery/', null = True)
     gallery4 = models.ImageField(upload_to='gallery/', null = True)
     gallery5 = models.ImageField(upload_to='gallery/', null = True)
     gallery6 = models.ImageField(upload_to='gallery/', null = True)
-    gallery = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6]
     def __str__(self):
         return str(self.title)
 
