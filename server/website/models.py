@@ -15,12 +15,12 @@ class Project(models.Model):
     title = models.CharField(max_length=200, default='About us 1')
     description = models.CharField(max_length=1000, default = 'description')
     image = models.ImageField(upload_to='images/', null= True)
-    gallery1 = models.ImageField(upload_to='gallery/', null = True)
-    gallery2 = models.ImageField(upload_to='gallery/', null = True)
-    gallery3 = models.ImageField(upload_to='gallery/', null = True)
-    gallery4 = models.ImageField(upload_to='gallery/', null = True)
-    gallery5 = models.ImageField(upload_to='gallery/', null = True)
-    gallery6 = models.ImageField(upload_to='gallery/', null = True)
+    gallery1 = models.ImageField(upload_to='images/', null = True)
+    gallery2 = models.ImageField(upload_to='images/', null = True)
+    gallery3 = models.ImageField(upload_to='images/', null = True)
+    gallery4 = models.ImageField(upload_to='images/', null = True)
+    gallery5 = models.ImageField(upload_to='images/', null = True)
+    gallery6 = models.ImageField(upload_to='images/', null = True)
     def __str__(self):
         return str(self.title)
 
